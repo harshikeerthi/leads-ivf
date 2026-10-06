@@ -1,7 +1,6 @@
 // Google Sheets Integration Utility
-// Enter your published Google Apps Script Web App URL below or set VITE_GOOGLE_SCRIPT_URL in .env file
-
-export const GOOGLE_SCRIPT_URL = (import.meta as any).env?.VITE_GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/AKfycbwBHVBula5IBsiHBPcwuU6BfSqcsgAVcWfPV5PnRyQ9ioXbEOn_xSXsTWL_y8RnLUxNmA/exec';
+// Paste your published Google Apps Script Web App URL below:
+export const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx2vHxnBwWe4ekTDwDjbxkVq7-o8hM10cMH0-A9EpW4G2H8OIyktCxXHLmHnFzsHjgQ7g/exec';
 
 export interface FormSubmissionData {
   name: string;
@@ -34,12 +33,12 @@ export async function sendToGoogleSheet(data: FormSubmissionData): Promise<boole
       formSource: data.formSource || 'General Consultation Registration'
     };
 
-    // Send payload using no-cors mode to bypass CORS restriction in browser for Apps Script
+    // Send payload using text/plain in no-cors mode to safely bypass browser CORS restrictions
     await fetch(scriptUrl, {
       method: 'POST',
       mode: 'no-cors',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'text/plain;charset=utf-8',
       },
       body: JSON.stringify(payload),
     });
