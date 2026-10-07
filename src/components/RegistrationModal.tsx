@@ -65,7 +65,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
           </h2>
 
           <p className="text-xs sm:text-sm text-[#56335B] font-medium max-w-sm mx-auto">
-            {t.nav.campFormSubtitle} • <span className="text-[#9A389F] font-bold">{t.nav.limitedSlots}</span>
+            {t.nav.campFormSubtitle}
           </p>
         </div>
 

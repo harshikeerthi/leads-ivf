@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, CheckCircle2, User, Phone, ChevronRight, Award, Heart, Star, ShieldCheck, Tag } from 'lucide-react';
+import { Calendar, MapPin, User, Phone, ChevronRight, Award, Heart, Star, ShieldCheck, Tag } from 'lucide-react';
 import { Translation } from '../data/translations';
 
 interface HeroProps {
@@ -33,16 +33,44 @@ export const Hero: React.FC<HeroProps> = ({ t, onFormSubmit }) => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#FAF6FA] min-h-[calc(100vh-8.5rem)] flex flex-col justify-center items-center py-6 sm:py-8 lg:py-10 px-6 sm:px-12 lg:px-20 xl:px-28">
-      {/* Background Glows */}
-      <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#9A389F]/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative overflow-hidden bg-[#FAF6FA] min-h-[calc(100vh-8.5rem)] flex flex-col justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-8 lg:px-10 xl:px-14">
+      {/* Desktop Hero IVF Banner Artwork Background - Full fidelity without cutting */}
+      <div className="hidden lg:block absolute inset-0 z-0 pointer-events-none select-none overflow-hidden">
+        <img
+          src="/hero-ivf-banner.png"
+          alt="Medcy IVF Fertility Care"
+          className="absolute right-0 top-0 h-full w-full object-contain object-right"
+        />
+        {/* Soft left gradient protecting text & form legibility without obscuring the mother, baby & embryo on the right */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[62%] xl:w-[58%] bg-gradient-to-r from-[#FAF6FA] via-[#FAF6FA]/95 to-transparent" />
+      </div>
+
+      {/* Subtle Background Glow on left only */}
       <div className="absolute bottom-10 left-10 w-80 h-80 bg-[#652D6C]/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 lg:px-6 relative z-10 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8 lg:gap-10 xl:gap-14">
+      {/* Main Content Container - shifted to the left to give the right artwork full visibility */}
+      <div className="w-full max-w-5xl xl:max-w-[1100px] 2xl:max-w-[1180px] relative z-10 my-auto mr-auto">
+        {/* Mobile Hero Artwork Card - 100% visible with zero cutting */}
+        <div className="lg:hidden w-full mb-5 rounded-2xl overflow-hidden shadow-lg border border-[#652D6C]/15 relative bg-white">
+          <img
+            src="/hero-ivf-banner.png"
+            alt="Medcy IVF Fertility Care"
+            className="w-full h-auto aspect-[16/9] object-contain bg-gradient-to-r from-[#FAF6FA] to-[#F5EAF7]"
+          />
+          <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white pointer-events-none">
+            <span className="bg-[#652D6C]/90 backdrop-blur-sm px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wider uppercase shadow-sm">
+              Medcy IVF
+            </span>
+            <span className="bg-yellow-400 text-[#4D1F53] px-2.5 py-0.5 rounded-full text-[10px] font-extrabold shadow-sm">
+              8,000+ Families
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-6 lg:gap-7 xl:gap-8">
           
           {/* Left Column: Headlines & Discount Offer */}
-          <div className="space-y-4 sm:space-y-5 lg:col-span-7 order-2 lg:order-1">
+          <div className="space-y-3.5 sm:space-y-4 lg:col-span-7 order-2 lg:order-1">
             
             {/* Brand Eyebrow: MEDCY IVF (Poppins SemiBold) */}
             {t.hero.brandTag && (
@@ -73,19 +101,6 @@ export const Hero: React.FC<HeroProps> = ({ t, onFormSubmit }) => {
             <p className="text-sm sm:text-base lg:text-base text-[#56335B] leading-relaxed max-w-2xl font-medium">
               {t.hero.subtext}
             </p>
-
-            {/* 5 Key Badges / Trust Highlights */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 pb-1">
-              {t.hero.keyPoints.map((point, idx) => (
-                <div 
-                  key={idx}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 border border-[#652D6C]/15 shadow-sm text-xs sm:text-sm font-bold text-[#3D1443]"
-                >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
 
 
             {/* Special Discount Offer Card comparing 1.9L vs 1.8L */}
@@ -125,17 +140,14 @@ export const Hero: React.FC<HeroProps> = ({ t, onFormSubmit }) => {
           </div>
 
           {/* Right Column: Registration Form */}
-          <div className="lg:col-span-5 order-1 lg:order-2">
-            <div className="bg-white relative shadow-xl border border-[#652D6C]/20 px-6 pt-7 pb-8 sm:px-7 sm:pt-8 sm:pb-9 lg:pt-9 lg:pb-10 rounded-2xl">
+          <div className="lg:col-span-5 order-1 lg:order-2 w-full max-w-[420px]">
+            <div className="bg-white/95 backdrop-blur-md relative shadow-2xl border border-[#652D6C]/20 px-6 pt-7 pb-8 sm:px-7 sm:pt-8 sm:pb-9 lg:pt-9 lg:pb-10 rounded-2xl">
               
               {/* Form Header */}
               <div className="text-center mb-4 sm:mb-5">
                 <h2 className="text-xl sm:text-2xl font-extrabold text-[#2A102D] tracking-tight">
                   {t.hero.formTitle}
                 </h2>
-                <p className="text-xs sm:text-sm text-[#56335B] mt-0.5 font-medium">
-                  {t.hero.formSubtitle}
-                </p>
               </div>
 
               {/* Form */}

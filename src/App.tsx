@@ -35,7 +35,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF6FA] text-[#2A102D] font-sans pb-16 lg:pb-0">
+    <div className="min-h-screen bg-[#FAF6FA] text-[#2A102D] font-sans pb-16 lg:pb-0 overflow-x-hidden">
       {/* Top Glass Navbar */}
       <Navbar 
         lang={lang} 

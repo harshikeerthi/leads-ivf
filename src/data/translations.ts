@@ -181,7 +181,7 @@ export const translations: Record<Language, Translation> = {
         "ఉచిత కౌన్సెలింగ్",
         "ఎటువంటి రిజిస్ట్రేషన్ ఫీజు లేదు"
       ],
-      formTitle: "కన్సల్టేషన్ రిజిస్ట్రేషన్",
+      formTitle: "కన్సల్టేషన్ రిజిస్ట్రేషన్ ఫారమ్",
       formSubtitle: "మీ కన్సల్టేషన్ స్లాట్‌ను ఇప్పుడే రిజర్వ్ చేసుకోండి",
       fullNameLabel: "పూర్తి పేరు *",
       fullNamePlaceholder: "మీ పూర్తి పేరును నమోదు చేయండి",
@@ -426,7 +426,7 @@ export const translations: Record<Language, Translation> = {
         "Free Counselling",
         "No Registration"
       ],
-      formTitle: "Consultation Registration",
+      formTitle: "Consultation Registration Form",
       formSubtitle: "Reserve your consultation spot today",
       fullNameLabel: "Full Name *",
       fullNamePlaceholder: "Enter your full name",
@@ -439,7 +439,7 @@ export const translations: Record<Language, Translation> = {
       slotOptions: ["10:00 AM - 07:00 PM", "10:00 AM - 01:00 PM", "01:00 PM - 04:00 PM", "04:00 PM - 07:00 PM"],
       submitButton: "Confirm Booking",
       submitting: "Submitting...",
-      privacyNote: "🔒 Your personal information is strictly confidential."
+      privacyNote: "Your personal information is strictly confidential."
     },
     stats: {
       cases: "8,000+",
